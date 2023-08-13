@@ -3,6 +3,7 @@ package x.nanocomp.nanox.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -23,12 +24,16 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @NotEmpty
     private final String username;
     @JsonIgnore
+    @NotEmpty
     private final String password;
     private final String bio;
     @OneToMany(mappedBy = "author")
     private List<Post> posts;
+    @OneToMany(mappedBy = "id")
+    private List<Post> likes;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
