@@ -1,24 +1,22 @@
 package x.nanocomp.nanox.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.rest.core.annotation.RestResource;
+import lombok.*;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
-@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @RequiredArgsConstructor
-@RestResource(rel = "users", path = "users")
 public class User implements UserDetails {
     private static final long serialVersionUID = 1L;
 
@@ -26,7 +24,11 @@ public class User implements UserDetails {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private final String username;
+    @JsonIgnore
     private final String password;
+    private final String bio;
+    @OneToMany(mappedBy = "author")
+    private List<Post> posts;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
