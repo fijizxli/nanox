@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.data.annotation.CreatedDate;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -28,8 +30,11 @@ public class Post {
     @OneToMany
     private List<Post> replies;
 
-    @OneToMany
+    @ManyToMany(mappedBy = "likedPosts")
     private Set<User> likedBy;
 
     private int likeCount;
+
+    @CreatedDate
+    private Date createdAt;
 }
