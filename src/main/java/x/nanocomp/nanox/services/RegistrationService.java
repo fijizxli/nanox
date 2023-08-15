@@ -17,7 +17,8 @@ public class RegistrationService {
 
 
         User u = new User(request.getUsername(),
-                pe.encode(request.getPassword()), null);
+                pe.encode(request.getPassword()),
+                "","", request.getGender());
 
         ur.save(u);
         return "done.";
