@@ -3,7 +3,6 @@ package x.nanocomp.nanox.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;

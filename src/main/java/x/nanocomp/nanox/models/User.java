@@ -1,11 +1,9 @@
 package x.nanocomp.nanox.models;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -43,7 +41,6 @@ public class User implements UserDetails {
     private final String bio;
 
     @Enumerated(EnumType.STRING)
-//    @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     private final Gender gender;
 
     @OneToMany(mappedBy = "author")
