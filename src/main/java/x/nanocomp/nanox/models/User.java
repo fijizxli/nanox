@@ -55,7 +55,7 @@ public class User implements UserDetails {
     private List<Post> likedPosts;
 
     @CreatedDate
-    private Date createdAt;
+    private Date createdAt = new Date();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -20,7 +20,6 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @NotEmpty
     private final User author;
 
     @NotEmpty
@@ -35,5 +34,5 @@ public class Post {
     private int likeCount;
 
     @CreatedDate
-    private Date createdAt;
+    private Date createdAt = new Date();
 }
