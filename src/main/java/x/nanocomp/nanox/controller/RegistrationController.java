@@ -6,7 +6,7 @@ import x.nanocomp.nanox.requests.RegistrationRequest;
 import x.nanocomp.nanox.services.RegistrationService;
 
 @RestController
-@RequestMapping(path = "api/register")
+@RequestMapping(path = "/register")
 @AllArgsConstructor
 public class RegistrationController {
     private RegistrationService registrationService;
