@@ -1,7 +1,6 @@
 package x.nanocomp.nanox.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import x.nanocomp.nanox.requests.RegistrationRequest;
 import x.nanocomp.nanox.services.RegistrationService;
